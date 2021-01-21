@@ -33,6 +33,7 @@ SELECT 'SQL Server' + ' ' + '2019'
 SELECT CompanyName + ', ' + ContactName, * FROM Customers
 
 
+SELECT * FROM Orders
 -- !!!
 SELECT 'SQL Server' + ' ' + 2019
 -- !!!
@@ -291,6 +292,9 @@ FROM Employees
 */
 
 SELECT * FROM Categories
+GO
+
+DROP FUNCTION dbo.GetCategoryName
 GO
 
 CREATE FUNCTION dbo.GetCategoryName(@CategoryID int)
