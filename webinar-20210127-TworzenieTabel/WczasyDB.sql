@@ -1,4 +1,4 @@
-
+ï»¿
 
 CREATE DATABASE WczasyDB
 GO
@@ -27,7 +27,7 @@ CREATE TABLE RodzajWyzywienia (
 )
 GO
 
-INSERT INTO RodzajWyzywienia (RodzajWyzywienia) VALUES (N'Œniadania'), (N'Œniadanie+kolacja'), (N'All inclusive soft'), (N'All inclusive')
+INSERT INTO RodzajWyzywienia (RodzajWyzywienia) VALUES (N'Åšniadania'), (N'Åšniadanie+kolacja'), (N'All inclusive soft'), (N'All inclusive')
 
 SELECT * FROM RodzajWyzywienia
 
@@ -43,14 +43,14 @@ CREATE TABLE Panstwo (
 )
 GO 
 
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Chorwacja', 'Dubrownik – per³a Adriatyku i Korcula – wyspa Marco Polo')
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Czarnogóra', 'Przepiêkne krajobrazy gór schodz¹cych bezpoœrednio do morza')
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Grecja', 'Kolebka kultury, ojczyzna mitów i Igrzysk Olimpijskich')
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Hiszpania', 'Klejnoty architektury w miastach Gaudi’ego, Dalego i Picassa')
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'W³ochy', 'Doskona³a kuchnia z pizz¹ i spaghetti, pyszne wina i œwietna kawa')
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Tunezja', 'S³ynne miasteczko z Gwiezdnych Wojen')
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Polska', 'Szerokie, piaszczyste pla¿e wyj¹tkowego Ba³tyku. Góralski folklor i piêkne górskie krajobrazy')
-INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Egipt', 'Królestwo faraonów i tajemnicze piramidy')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Chorwacja', 'Dubrownik â€“ perÅ‚a Adriatyku i Korcula â€“ wyspa Marco Polo')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'CzarnogÃ³ra', 'PrzepiÄ™kne krajobrazy gÃ³r schodzÄ…cych bezpoÅ›rednio do morza')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Grecja', 'Kolebka kultury, ojczyzna mitÃ³w i Igrzysk Olimpijskich')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Hiszpania', 'Klejnoty architektury w miastach Gaudiâ€™ego, Dalego i Picassa')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'WÅ‚ochy', 'DoskonaÅ‚a kuchnia z pizzÄ… i spaghetti, pyszne wina i Å›wietna kawa')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Tunezja', 'SÅ‚ynne miasteczko z Gwiezdnych Wojen')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Polska', 'Szerokie, piaszczyste plaÅ¼e wyjÄ…tkowego BaÅ‚tyku. GÃ³ralski folklor i piÄ™kne gÃ³rskie krajobrazy')
+INSERT INTO Panstwo (Panstwo, Opis) VALUES (N'Egipt', 'KrÃ³lestwo faraonÃ³w i tajemnicze piramidy')
 
 SELECT * FROM Panstwo
 
@@ -65,14 +65,14 @@ CREATE TABLE Miejsce (
 GO 
 
 -- Polska
-INSERT INTO Miejsce (Miejsce, PanstwoID) VALUES (N'Góry', 7)
+INSERT INTO Miejsce (Miejsce, PanstwoID) VALUES (N'GÃ³ry', 7)
 INSERT INTO Miejsce (Miejsce, PanstwoID) VALUES (N'Jeziora', 7)
 INSERT INTO Miejsce (Miejsce, PanstwoID) VALUES (N'Morze', 7)
 
 -- Egipt
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Hurghada', 8, 'Œwietny punkt wypadowy do zwiedzania zabytków staro¿ytnego œwiata')
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Marsa Alam', 8, 'Wspania³e piaszczyste pla¿e')
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Taba', 8, 'Piêkne pla¿e, b³êkitne morze na tle gór Synaj')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Hurghada', 8, 'Åšwietny punkt wypadowy do zwiedzania zabytkÃ³w staroÅ¼ytnego Å›wiata')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Marsa Alam', 8, 'WspaniaÅ‚e piaszczyste plaÅ¼e')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Taba', 8, 'PiÄ™kne plaÅ¼e, bÅ‚Ä™kitne morze na tle gÃ³r Synaj')
 
 -- Tunezja
 INSERT INTO Miejsce (Miejsce, PanstwoID) VALUES (N'Djerba', 6)
@@ -82,12 +82,12 @@ INSERT INTO Miejsce (Miejsce, PanstwoID) VALUES (N'Monastir', 6)
 INSERT INTO Miejsce (Miejsce, PanstwoID) VALUES (N'Sousse', 6)
 
 -- Hiszpania
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Costa Brava', 4, 'Zachwycaj¹ca Barcelona')
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Costa Dorada', 4, 'Têtni¹ce nocnym ¿yciem nadmorskie kurorty, z Salou na czele')
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Costa de la Luz', 4, 'Doskona³e tapas i s³ynne sherry z Jerez de la Frontera')
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Ibiza', 4, 'Najlepsze dyskoteki w Europie, najlepsi DJ-e z ca³ego œwiata')
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Majorka', 4, 'Pachn¹ce gaje pomarañczy, majestatycznie góry, smocze jaskinie i zielone wzgórza')
-INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Sevilla', 4, 'Stolica i najwiêksze miasto Andaluzji, to jedno z najciekawszych miast ca³ego Pó³wyspu Iberyjskiego')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Costa Brava', 4, 'ZachwycajÄ…ca Barcelona')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Costa Dorada', 4, 'TÄ™tniÄ…ce nocnym Å¼yciem nadmorskie kurorty, z Salou na czele')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Costa de la Luz', 4, 'DoskonaÅ‚e tapas i sÅ‚ynne sherry z Jerez de la Frontera')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Ibiza', 4, 'Najlepsze dyskoteki w Europie, najlepsi DJ-e z caÅ‚ego Å›wiata')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Majorka', 4, 'PachnÄ…ce gaje pomaraÅ„czy, majestatycznie gÃ³ry, smocze jaskinie i zielone wzgÃ³rza')
+INSERT INTO Miejsce (Miejsce, PanstwoID, Opis) VALUES (N'Sevilla', 4, 'Stolica i najwiÄ™ksze miasto Andaluzji, to jedno z najciekawszych miast caÅ‚ego PÃ³Å‚wyspu Iberyjskiego')
 
 
 
@@ -103,9 +103,9 @@ CREATE TABLE Kategoria (
 GO 
 
 INSERT INTO Kategoria (Kategoria) VALUES ('Animacje dla dzieci'), ('Bon turystyczny 500+'), 
-	('Dla odkrywców'), ('Dla odwa¿nych'), ('Hotel dla doros³ych'), ('Nowoœæ w ofercie'), 
-	('Postaw na aktywnoœæ'), ('Romantyczna podró¿'), ('SPA'), ('Wifi w cenie'), 
-	('Wypocznij z rodzin¹'), ('Zanurz siê z rodzin¹'), ('Wczasy bez testu'), ('Egzotyka'), ('Dojazd w³asny')
+	('Dla odkrywcÃ³w'), ('Dla odwaÅ¼nych'), ('Hotel dla dorosÅ‚ych'), ('NowoÅ›Ä‡ w ofercie'), 
+	('Postaw na aktywnoÅ›Ä‡'), ('Romantyczna podrÃ³Å¼'), ('SPA'), ('Wifi w cenie'), 
+	('Wypocznij z rodzinÄ…'), ('Zanurz siÄ™ z rodzinÄ…'), ('Wczasy bez testu'), ('Egzotyka'), ('Dojazd wÅ‚asny')
 
 
 SELECT * FROM Kategoria
@@ -126,11 +126,11 @@ GO
 
 -- Egipt / Hurghada
 INSERT INTO Wczasy (NazwaHotelu, IleGwiazdek, MiejsceID, Opis)
-VALUES ('Hotel Sea Gull Beach Resort', 4, 4, 'Czterogwiazdkowy, stylowy, otwarty w 2001 r., czêœciowo odnowiony w 2019 r.')
+VALUES ('Hotel Sea Gull Beach Resort', 4, 4, 'Czterogwiazdkowy, stylowy, otwarty w 2001 r., czÄ™Å›ciowo odnowiony w 2019 r.')
 GO
 
 INSERT INTO Wczasy (NazwaHotelu, IleGwiazdek, MiejsceID, Opis)
-VALUES ('Hotel Albatros Aqua Park', 4, 4, '243 pokoje, przestronne lobby, ca³odobowa recepcja')
+VALUES ('Hotel Albatros Aqua Park', 4, 4, '243 pokoje, przestronne lobby, caÅ‚odobowa recepcja')
 GO
 
 

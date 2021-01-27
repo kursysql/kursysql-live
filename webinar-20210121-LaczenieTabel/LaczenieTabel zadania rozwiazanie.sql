@@ -75,6 +75,6 @@ SELECT DISTINCT c.ContactName
 FROM Orders AS o
 JOIN Customers AS c 
   ON c.CustomerID = o.CustomerID
-WHERE YEAR(o.OrderDate) = 1997
+WHERE YEAR(o.OrderDate) = 1998
 ORDER BY ContactName
 

@@ -9,18 +9,62 @@
 */
 
 
-
-
+CREATE DATABASE WczasyDB2
+GO
 
 /* 
 	Pierwsza tabela
 	* pk, identity, null not null
 */
 
+USE WczasyDB2
+GO
+
+DROP TABLE Kategoria
+
+CREATE TABLE Kategoria (
+	ID INT CONSTRAINT PK_Kategoria PRIMARY KEY IDENTITY,
+	KategoriaNazwa nvarchar(50) NOT NULL CONSTRAINT UQ_Kategoria_Nazwa UNIQUE
+)
+
+INSERT INTO Kategoria (KategoriaNazwa) VALUES ('Animacje dla dzieci')
+INSERT INTO Kategoria (KategoriaNazwa) VALUES ('Nowość w ofercie')
+INSERT INTO Kategoria (KategoriaNazwa) VALUES ('Wypocznij z rodziną')
+
+INSERT INTO Kategoria (KategoriaNazwa) VALUES ('Bon turystyczny 500+')
 
 
+DELETE FROM Kategoria WHERE ID = 3
 
+INSERT INTO Kategoria (ID) VALUES (5)
+
+TRUNCATE TABLE Kategoria
+
+SELECT * FROM Kategoria ORDER BY ID
 -- live coding....
+
+DROP TABLE Wczasy
+
+CREATE TABLE Wczasy (
+	WczasyID int PRIMARY KEY IDENTITY,
+	NazwaHotelu nvarchar(200),
+	OpisHotelu nvarchar(max),
+	DataWprowadzenia datetime DEFAULT GETDATE(),
+	KategoriaID int NOT NULL REFERENCES Kategoria(ID)
+)
+
+INSERT INTO Wczasy (NazwaHotelu, KategoriaID) VALUES ('xyz', 1)
+INSERT INTO Wczasy (NazwaHotelu, KategoriaID) VALUES ('IUJOSHBVUIsdf', 2)
+
+DELETE Kategoria WHERE ID = 2
+
+SELECT * FROM Wczasy
+
+
+SELECT *
+FROM Wczasy AS w
+LEFT JOIN Kategoria AS k ON k.ID = w.KategoriaID
+
 
 /* Kategorie: 
 - Animacje dla dzieci
