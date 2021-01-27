@@ -41,7 +41,7 @@ SELECT
 	ProductID,
 	ProductName,
 	UnitPrice,
-	CategoryID, -- !!!
+	Products.CategoryID, -- !!!
 	CategoryName,
 	Description
 FROM Products
@@ -58,6 +58,18 @@ SELECT
 	c.Description
 FROM Products AS p
 JOIN Categories AS c ON c.CategoryID = p.CategoryID
+
+SELECT 
+	p.ProductID,
+	p.ProductName,
+	p.UnitPrice,
+	p.CategoryID,
+	c.CategoryName,
+	c.Description
+FROM Products AS p
+JOIN Categories AS c ON c.CategoryID = p.CategoryID
+
+
 
 
 -- trzecia tabela
@@ -80,6 +92,7 @@ SELECT
 	p.ProductName,
 	p.UnitPrice,
 	p.CategoryID,
+	c.CategoryID,
 	c.CategoryName,
 	c.Description,
 	s.SupplierID,
@@ -107,7 +120,7 @@ SELECT * FROM Customers -- 91
 
 SELECT * -- 830
 FROM Customers AS c 
-JOIN Orders AS o ON o.CustomerID = c.CustomerID 
+INNER JOIN Orders AS o ON o.CustomerID = c.CustomerID 
 
 
 -- unikalne identyfikatory klientów - 89
@@ -125,7 +138,7 @@ JOIN Orders AS o ON o.CustomerID = c.CustomerID
 -- włącznie z klientami bez zamówień
 SELECT c.CustomerID, c.CompanyName, c.Country, o.OrderID, o.CustomerID, o.OrderDate -- 832
 FROM Customers AS c 
-LEFT JOIN Orders AS o ON o.CustomerID = c.CustomerID 
+LEFT OUTER JOIN Orders AS o ON o.CustomerID = c.CustomerID 
 ORDER BY o.CustomerID
 
 -- TYLKO klienci bez zamówień
@@ -182,7 +195,7 @@ SELECT CategoryID, CategoryName FROM Categories  -- 8
 -- 77x8 = 616
 
 SELECT *
-FROM Products AS p
+FROM Products
 CROSS JOIN Categories
 
 
@@ -307,7 +320,7 @@ SELECT DISTINCT CustomerID FROM Orders WHERE YEAR(OrderDate) = 1997
 EXCEPT
 SELECT DISTINCT CustomerID FROM Orders WHERE YEAR(OrderDate) = 1996
 
--- czy wśród klientów są jacyś pracownikcy?
+-- czy wśród klientów są jacyś pracownicy?
 SELECT ContactName FROM Customers
 INTERSECT
 SELECT FirstName + ' ' + LastName FROM Employees
