@@ -1,0 +1,74 @@
+USE master
+GO
+
+IF EXISTS(SELECT * FROM sys.databases WHERE name = 'iFTSDemo')
+DROP DATABASE iFTSDemo
+
+RESTORE DATABASE iFTSDemo
+FROM  DISK = N'C:\SQL_Backup\iFTSDemo.bak' WITH  FILE = 1,  
+MOVE N'iFTS' TO N'C:\SQL_Data\iFTSDemo.mdf',  
+MOVE N'iFTS_log' TO N'C:\SQL_Data\iFTSDemo_log.ldf',  
+STATS = 5
+GO
+
+
+
+
+
+
+USE iFTSDemo
+GO
+
+CREATE FULLTEXT CATALOG FtsCatalog
+AS DEFAULT
+GO
+
+
+
+
+CREATE FULLTEXT INDEX ON NewsPL (
+	Title LANGUAGE Polish,
+	Body LANGUAGE Polish)
+KEY INDEX PK_NewsPL ON (FtsCatalog)
+WITH (
+CHANGE_TRACKING = AUTO, -- AUTO | MANUAL | OFF
+STOPLIST = SYSTEM);
+GO
+
+
+
+CREATE FULLTEXT INDEX ON NewsEN (
+	Title LANGUAGE English,
+	Body LANGUAGE English)
+KEY INDEX PK_NewsEN ON (FtsCatalog)
+WITH (
+CHANGE_TRACKING = AUTO, -- AUTO | MANUAL | OFF
+STOPLIST = SYSTEM);
+GO
+
+
+
+
+CREATE FULLTEXT INDEX ON ForumPosts (
+	Subject LANGUAGE Polish,
+	PostBody LANGUAGE Polish)
+KEY INDEX PK_ForumPosts ON (FtsCatalog)
+WITH (
+CHANGE_TRACKING = AUTO, -- AUTO | MANUAL | OFF
+STOPLIST = SYSTEM);
+GO
+
+
+
+CREATE FULLTEXT INDEX ON Articles (
+	ArticleFile TYPE COLUMN ArticleFileExt LANGUAGE Polish,
+	Title LANGUAGE Polish)
+KEY INDEX PK_Articles ON (FtsCatalog)
+WITH (
+CHANGE_TRACKING = AUTO, -- AUTO | MANUAL | OFF
+STOPLIST = SYSTEM);
+GO
+
+
+
+--SELECT * FROM sys.fulltext_indexes
