@@ -42,7 +42,7 @@ SELECT * FROM NewsPL WHERE Title LIKE N'%praktyki%'
 -- FTS jest zależny od języka
 SELECT * FROM NewsPL WHERE Title LIKE '%gra%' -- proGRAm, inteGRAcyjny, GRAduacja
 
-SELECT * FROM NewsPL WHERE FREETEXT(Title, N'gra')
+SELECT * FROM NewsPL WHERE FREETEXT(Title, N'gra') 
 
 
 
@@ -324,12 +324,6 @@ WHERE CONTAINS(Title, N'FORMSOF(THESAURUS, kurs) OR FORMSOF(INFLECTIONAL, kurs)'
 /* Proximity searches
 
 Wyszukiwanie słów znajdujących się blisko siebie
-
-"
-a czy jak odbyłam staż w 2012/2013 na stanowisku 
-SEKRETARKI to czy można to uznać za odbycie praktyk czy nie? 
-dodam że jestem na kierunku ZARZĄDZANIE.
-"
 
 */
 
