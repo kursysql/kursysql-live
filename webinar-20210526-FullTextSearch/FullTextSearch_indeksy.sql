@@ -7,11 +7,6 @@
 */
 
 
-/*
-	LIKE vs FTS
-*/
-
-
 USE iFTSDemo
 GO
 
@@ -20,7 +15,7 @@ SELECT * FROM NewsPL
 
 -- Msg 7601, Level 16, State 2, Line 21
 -- Cannot use a CONTAINS or FREETEXT predicate on table or indexed view 'NewsPL' because it is not full-text indexed.
-SELECT * FROM NewsPL WHERE CONTAINS(Title, N'praktyki')
+SELECT * FROM NewsPL WHERE CONTAINS(*, N'praktyki')
 
 
 SELECT * FROM sys.dm_fts_parser(N'"W dzisiejszych czasach sam dyplom uczelni nie jest wystarczającą przepustką do uzyskania"', 1045, 0, 0)
@@ -148,6 +143,8 @@ SELECT * FROM Articles WHERE ArticleFileExt <> 'pdf'
 	The commercial use on desktop systems requires a commercial license.
 
 */
+
+SELECT * FROM Articles WHERE FREETEXT(ArticleFile, N'finanse')
 
 
 

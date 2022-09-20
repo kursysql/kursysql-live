@@ -7,8 +7,7 @@ DROP DATABASE iFTSDemo
 RESTORE DATABASE iFTSDemo
 FROM  DISK = N'C:\SQL_Backup\iFTSDemo.bak' WITH  FILE = 1,  
 MOVE N'iFTS' TO N'C:\SQL_Data\iFTSDemo.mdf',  
-MOVE N'iFTS_log' TO N'C:\SQL_Data\iFTSDemo_log.ldf',  
-STATS = 5
+MOVE N'iFTS_log' TO N'C:\SQL_Data\iFTSDemo_log.ldf'
 GO
 
 
