@@ -1,0 +1,12 @@
+CREATE PROCEDURE ZapiszBlad
+AS
+BEGIN
+
+	INSERT INTO dbo.BledyLog 
+		(ErrNumber, ErrSeverity, ErrState, ErrProcedure, ErrLine, ErrMessage)
+	SELECT ERROR_NUMBER(), ERROR_SEVERITY(), ERROR_STATE(), 
+		ERROR_PROCEDURE(), ERROR_LINE(), ERROR_MESSAGE()
+
+
+END
+GO
