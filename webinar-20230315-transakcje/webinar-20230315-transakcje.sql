@@ -35,11 +35,12 @@ USE AdventureWorks2019
 
 	-- sys.dm_tran_locks 
 	SELECT * FROM sys.dm_tran_locks 
-	WHERE request_session_id = @@SPID AND resource_type in ('PAGE','RID','KEY','XACT')
+	WHERE request_session_id = @@SPID 
+		AND resource_type in ('PAGE','RID','KEY','XACT')
 
 	-- sp_who
 	EXEC sp_who @@SPID
-	EXEC sp_who 57
+	EXEC sp_who 55
 
 
 	-- sp_WhoIsActive
@@ -48,16 +49,16 @@ USE AdventureWorks2019
 
 	-- ActivityMonitor
 
-
+	DBCC USEROPTIONS
 
 	BEGIN TRAN
 	-- trancount?
 
 		SELECT * FROM Person.Person2
 	
-		UPDATE Person.Person2 SET LastName = 'Nowak' WHERE BusinessEntityID = 3
+		UPDATE Person.Person2 SET LastName = 'Nowak' 
+		WHERE BusinessEntityID = 3
 		-- locks?
-
 
 	ROLLBACK
 
@@ -69,7 +70,7 @@ USE AdventureWorks2019
 
 
 	-- ! próba blokady strony
-	SELECT * FROM Person.Person
+	SELECT * FROM Person.Person2
 
 
 	SELECT * FROM Person.Person2 WHERE BusinessEntityID = 1
@@ -122,7 +123,8 @@ USE AdventureWorks2019
 
 	BEGIN TRAN 
 
-		UPDATE Person.Person2 SET LastName = 'Nowak' WHERE BusinessEntityID = 3
+		UPDATE Person.Person2 SET LastName = 'Nowak' 
+		WHERE BusinessEntityID = 3
 
 		-- Sesja 2...
 
@@ -170,6 +172,8 @@ USE AdventureWorks2019
 		}
 */
 
+	DBCC USEROPTIONS
+
 	SELECT @@TRANCOUNT
 
 	BEGIN TRAN
@@ -177,7 +181,8 @@ USE AdventureWorks2019
 
 		SELECT * FROM Person.Person2
 	
-		UPDATE Person.Person2 SET LastName = 'Nowak' WHERE BusinessEntityID = 3
+		UPDATE Person.Person2 SET LastName = 'Nowak' 
+		WHERE BusinessEntityID = 3
 		-- Sesja 2...
 
 
@@ -189,7 +194,7 @@ USE AdventureWorks2019
 
 	--> BEGIN --  Sesja 2
 
-	SELECT * FROM Person.Person
+	SELECT * FROM Person.Person2
 
 	SELECT * FROM Person.Person2 WHERE BusinessEntityID = 1
 
@@ -228,6 +233,8 @@ USE AdventureWorks2019
 
 
 	ALTER DATABASE AdventureWorks2019 SET READ_COMMITTED_SNAPSHOT ON 
+	WITH ROLLBACK IMMEDIATE
+
 	DBCC USEROPTIONS
 
 
